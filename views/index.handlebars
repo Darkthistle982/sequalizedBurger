@@ -1,0 +1,63 @@
+<div class="container bg-secondary border border-dark rounded-bottom">
+    <div class="row mt-2">
+        <div class="center col-sm-12">
+            {{!-- Insert a top burger image here --}}
+            <img src="https://i.imgur.com/izk0psF.jpg?1" alt="Eat-A-Burger App"
+                class="img-thumbnail mr-4 ml-5" style="width: 300px; height: 200px;">
+
+            <img src="https://scontent-den4-1.cdninstagram.com/v/t51.2885-15/e35/s1080x1080/91050135_1527748244046450_2077974852381882215_n.jpg?_nc_ht=scontent-den4-1.cdninstagram.com&amp;_nc_cat=106&amp;_nc_ohc=pneJcsp6wGsAX-ifURc&amp;oh=0e56a28ff0abe3547cb3310359e951b6&amp;oe=5EAC51DC"
+                alt="Eat-A-Burger App" class="img-thumbnail ml-4 mr-4" style="width: 300px; height: 200px;">
+
+            <img src="https://i.imgur.com/A4TuLrD.jpg" alt="Eat-A-Burger App" class="img-thumbnail ml-4" style="width: 300px; height: 200px;">
+            <h1 class="font-weight-bolder">Eat-A-Burger</h1>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-6">
+            <br>
+            <h2 class="font-weight-bold">Burgers Available to Eat!</h2>
+            <ul>
+                {{#each burgers}}
+                {{#unless this.devoured}}
+                <li class="bg-light border border-dark rounded m1-1 mb-1 p-1">
+                    {{this.id}}
+                    {{this.burger_name}}
+                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                        <input type="hidden" name="devoured" value="true">
+                        <button class="btn-dark text-align-center border border-dark rounded-pill ml-3 mb-1"
+                            type="submit">Devour It!</button>
+                    </form>
+                </li>
+                {{/unless}}
+                {{/each}}
+            </ul>
+        </div>
+
+        <div class="col-sm-6">
+            <br>
+            <h2 class="font-weight-bold">Burgers That Have Been Eaten</h2>
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <li class="bg-light rounded-pill border border-dark mt-1 mb-1 p-1">
+                {{this.id}}
+                {{this.burger_name}}
+            </li>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="center col-sm-12">
+            <h2 class="font-weight-bold">Add a Burger</h2>
+            <form class="create-update-form" action="/" method="POST">
+                <div class="form-group">
+                    <p>Enter a burger you want to eat and click the 'Yum!' button.</p>
+                    <input type="text" id="burgerInput" name="burger_name">
+                </div>
+                <button class="btn btn-lg btn-dark mb-2" type="submit">Yum!</button>
+            </form>
+        </div>
+    </div>
+</div>

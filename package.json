@@ -1,0 +1,27 @@
+{
+  "name": "burger",
+  "version": "1.0.0",
+  "description": "a burger eaters list app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Darkthistle982/burger.git"
+  },
+  "author": "Brian Allen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Darkthistle982/burger/issues"
+  },
+  "homepage": "https://github.com/Darkthistle982/burger#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^4.0.0",
+    "method-override": "^3.0.0",
+    "mysql": "^2.18.1"
+  }
+}
