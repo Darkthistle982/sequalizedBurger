@@ -22,8 +22,8 @@ module.exports = function(app) {
             {where: {
                 id: request.params.id
             }}
-        ).then(function(result) {
-            result.redirect('/');
+        ).then(function() {
+            response.redirect('/');
         });
     });
 };
