@@ -26,4 +26,15 @@ module.exports = function(app) {
             response.redirect('/');
         });
     });
+
+    app.delete("/:id", function(request, response) {
+        db.Burger.destroy({
+            where: { id: request.params.id }
+        }).then(function() {
+            response.redirect('/');
+        }).catch(function(error) {
+            console.error(error);
+            response.status(412).end();
+        });
+    });
 };
