@@ -16,7 +16,7 @@
     <div class="row">
         <div class="col-sm-6">
             <br>
-            <h2 class="font-weight-bold">Burgers Available to Eat!</h2>
+            <h2 class="font-weight-bold">Burger Eating Bucket List</h2>
             <ul>
                 {{#each burgers}}
                 {{#unless this.dataValues.devoured}}
@@ -37,12 +37,17 @@
 
         <div class="col-sm-6">
             <br>
-            <h2 class="font-weight-bold">Burgers That Have Been Eaten</h2>
+            <h2 class="font-weight-bold">Burgers I've Eaten</h2>
             {{#each burgers}}
             {{#if this.dataValues.devoured}}
             <li class="bg-light rounded-pill border border-dark mt-1 mb-1 p-1">
                 {{this.dataValues.id}}
                 {{this.dataValues.burger_name}}
+                <form action="/{{this.dataValues.id}}?_method=DELETE" method="POST">
+                    <input type="hidden" name="delete">
+                    <button class="btn-danger btn-sm text-align-center border border-dark rounded-pill ml-3 mb-1"
+                        type="submit">Delete It!</button>
+                </form>
             </li>
             {{/if}}
             {{/each}}
