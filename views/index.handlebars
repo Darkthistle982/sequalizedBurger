@@ -19,11 +19,12 @@
             <h2 class="font-weight-bold">Burgers Available to Eat!</h2>
             <ul>
                 {{#each burgers}}
-                {{#unless this.devoured}}
+                {{#unless this.dataValues.devoured}}
+                
                 <li class="bg-light border border-dark rounded m1-1 mb-1 p-1">
-                    {{this.id}}
-                    {{this.burger_name}}
-                    <form action="/{{this.id}}?_method=PUT" method="POST">
+                    {{this.dataValues.id}}
+                    {{this.dataValues.burger_name}}
+                    <form action="/{{this.dataValues.id}}?_method=PUT" method="POST">
                         <input type="hidden" name="devoured" value="true">
                         <button class="btn-dark text-align-center border border-dark rounded-pill ml-3 mb-1"
                             type="submit">Devour It!</button>
@@ -38,10 +39,10 @@
             <br>
             <h2 class="font-weight-bold">Burgers That Have Been Eaten</h2>
             {{#each burgers}}
-            {{#if this.devoured}}
+            {{#if this.dataValues.devoured}}
             <li class="bg-light rounded-pill border border-dark mt-1 mb-1 p-1">
-                {{this.id}}
-                {{this.burger_name}}
+                {{this.dataValues.id}}
+                {{this.dataValues.burger_name}}
             </li>
             {{/if}}
             {{/each}}
