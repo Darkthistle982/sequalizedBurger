@@ -26,4 +26,4 @@ The primary challenge was building out the ORM. I used the examples from the Cat
 * Heroku
 * Sequelize
 
-### Link to live application 
+### Link to live application https://cryptic-depths-30553.herokuapp.com/
